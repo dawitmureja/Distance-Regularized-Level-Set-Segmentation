@@ -8,11 +8,10 @@ import matplotlib.image as mpimg
 from scipy.signal import convolve2d as conv2d
 from drlse import gauss2D, drlse_edge,del2,distReg_p2,Dirac
 
-img = imread('gourd.jpg')
-#img1 = mpimg.imread('sample.jpg')
-#img1 = img1[:,:,0]
-#img = (imread('gourd.bmp')).astype(int)
-img = img[:,:,0]
+img = imread('gourd.bmp')
+#If the image is not gray scale
+#img = img[:,:,0]
+
 #parameter setting
 timestep = 1
 mu = 0.2/timestep
@@ -47,12 +46,7 @@ phi = initialLSF
 x_ = np.arange(img.shape[0])
 y_ = np.arange(img.shape[1])
 [x,y] = np.meshgrid(x_,y_)
-"""ax.plot_surface(x,y,-phi[x,y],cmap=cm.Accent,linewidth=0.0, antialiased=True) # phi is reversed just for better view
-ax.contour(x,y,phi[x,y],0)
-#ax.view_init(-80,35)
-ax2 = plt.figure(2)
-#ax2.imshow(img, extent = [0,255])
-"""
+
 
 #plt.figure(1)
 #plt.imshow(img, cmap = 'gray_r')
@@ -84,6 +78,3 @@ fig, (ax1) = plt.subplots(nrows = 1,figsize = (3,5))
 ax1.imshow(img, cmap='gray', aspect='auto', interpolation='nearest')
 ax1.contour(y,x,finalLSF[x,y],0, colors = 'r', linewidths = 4)
 plt.show()
-#imshow(G)
-#print(img.shape)
-#imshow(imresize(img, (200,200)))
