@@ -53,7 +53,6 @@ def multiple_choose(a,b,c,d, m_row = False):
         cols = np.array(range(c,d), dtype = np.int)
         return [rows[:,np.newaxis],cols]
 
-#fix it so that it can work for non square matrices
 def NeumannBoundaryCond(f):
     #make a function statisfy Neumann boundary condition
     nrow,ncol = f.shape
